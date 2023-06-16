@@ -1,40 +1,36 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { ImPointRight } from "react-icons/im";
-
+import { AiFillCaretRight } from "react-icons/ai";
 function AboutCard() {
   return (
     <Card className="quote-card-view">
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Hi Everyone, I am <span className="purple">Soumyajit Behera </span>
-            from <span className="purple"> Bhubaneswar, India.</span>
-            <br /> I am a final year student pursuing an Integrated MSc (IMSc)
-            in Maths and Computing at BIT Mesra.
-            <br />
-            Additionally, I am currently employed as a software developer at
-            Juspay.
-            <br />
-            <br />
-            Apart from coding, some other activities that I love to do!
+            H&H is a Tunisian enterprise, birthed from the fiery passion of two young developers. What began as a mere pastime, swiftly transformed into a calling, leading us to dedicate our energy to the creation of premium software solutions.
+          </p>
+          <p style={{ textAlign: "justify" }}>
+            Today, H&H stands as a pillar of software development within the vibrant landscape of Tunisia's tech industry.
+          </p>
+          <p style={{ textAlign: "justify" }}>
+            Our talented cadre of developers embodies our fervor and unyielding commitment to excellence. We invite you to join us on this riveting journey, to witness firsthand how we can turn the ether of your ideas into tangible reality.
           </p>
           <ul>
             <li className="about-activity">
-              <ImPointRight /> Playing Games
+              <AiFillCaretRight /> Innovative
             </li>
             <li className="about-activity">
-              <ImPointRight /> Writing Tech Blogs
+              <AiFillCaretRight /> Reliable
             </li>
             <li className="about-activity">
-              <ImPointRight /> Travelling
+              <AiFillCaretRight /> Dynamic
             </li>
           </ul>
 
           <p style={{ color: "rgb(155 126 172)" }}>
-            "Strive to build things that make a difference!"{" "}
+            "It Always Seems Impossible Until It's Done."
           </p>
-          <footer className="blockquote-footer">Soumyajit</footer>
+          <footer className="blockquote-footer">Nelson Mandela</footer>
         </blockquote>
       </Card.Body>
     </Card>

@@ -13,14 +13,18 @@ function LoginCard() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [restaurant, setRestaurant] = useState('H&H corp');
-  const { setUser } = useContext(UserContext);
-
+  const [restaurant, ] = useState('H&H corp');
+  const { user, setUser } = useContext(UserContext);  // extract `user` here
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
     e.preventDefault();
+
+    if(user && user.first_name && user.last_name) {
+        setErrorMessage('Vous êtes déjà connecté');
+        return;
+    }
 
     const data = { email, password, restaurant };
 
@@ -32,8 +36,7 @@ function LoginCard() {
       } else {
         console.log('Login successfully');
         console.log(document.cookie); // print cookies
-        setErrorMessage('');
-
+        setErrorMessage('') 
         // Récupérer les informations de l'utilisateur
         fetch('http://localhost:3500/api/auth/namedisplay', {
           credentials: 'include'  // pour envoyer les cookies avec la requête
@@ -47,18 +50,13 @@ function LoginCard() {
             console.error('Error:', error);
           });
 
-        // Gérer la redirection en fonction du rôle de l'utilisateur
-        if (response.data.role === 'dev') {
-          navigate('/admin/homepage');
-        } else if (response.data.role === 'client') {
-          navigate('/clientHome');
-        }
       }
     } catch (error) {
       console.error(error);
       setErrorMessage('An error occurred');
     }
   };
+
 
 
   return (

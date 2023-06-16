@@ -9,7 +9,8 @@ import Login from "./components/Auth/Login/LoginPage";
 import Signup from "./components/Auth/Signup/SignupPage"
 import AdminHome from './components/Admin/Admin'; // Importez AdminHome ici
 import UserContext from './UserContext';
-
+import NoProduct from "./components/ProductErrors/NoProduct/NoProduct";
+import ProductComingSoon from "././components/ProductErrors/ProductCommingSoom/ProductCommingSoon";
 
 
 import {
@@ -34,6 +35,8 @@ function App() {
     }, 1200);
 
     return () => clearTimeout(timer);
+
+    
   }, []);
 
   return (
@@ -50,6 +53,10 @@ function App() {
             <Route path="/login" element={<Login/>} />
             <Route path="/signup" element={<Signup/>} />
             <Route path="/admin/homepage" element={<AdminHome/>} />
+            <Route path="/comingsoon" element={<ProductComingSoon/>} />
+            <Route path="/notavailable" element={<NoProduct/>} />
+
+
           </Routes>
           <Footer />
         </div>

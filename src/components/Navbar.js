@@ -5,8 +5,10 @@ import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import {CgProfile} from "react-icons/cg" 
+import {CgProfile} from "react-icons/cg"
+import {FiLogOut}  from "react-icons/fi";
 import UserContext from '../UserContext';
+import LogoutButton from './Auth/LogoutButton'; 
 
 
 import {
@@ -21,8 +23,21 @@ import { CgFileDocument } from "react-icons/cg";
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
-  const {user} = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext);
 
+
+  useEffect(() => {
+    fetch('http://localhost:3500/api/auth/namedisplay', {
+      credentials: 'include'  // pour envoyer les cookies avec la requête
+    })
+    .then(response => response.json())
+    .then(data => {
+      setUser(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }, [setUser]);
   
   
 
@@ -91,7 +106,7 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/admin/homepage"
+                to="/comingsoon"
                 onClick={() => updateExpanded(false)}
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Projects
@@ -99,15 +114,17 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item className="fork-btn">
-            <Button
-              as={Link}
-              to="/login"
-              onClick={() => updateExpanded(false)}
-            >
-              <CgProfile style={{ fontSize: "1.2em" }} />   
-              {user ? `${user.first_name} ${user.last_name}` : 'Login'}
-            </Button>
-            </Nav.Item>
+  <Button
+    as={Link}
+    to={user && user.first_name && user.last_name ? '/' : '/login'}
+    onClick={() => updateExpanded(false)}
+  >
+    <CgProfile style={{ fontSize: "1.2em" }} />   
+    {user && user.first_name && user.last_name ? `${user.first_name} ${user.last_name}` : 'Login'}
+  </Button>
+</Nav.Item>
+{user && user.first_name && user.last_name ? <Nav.Item><LogoutButton /></Nav.Item> : null}
+
           </Nav>
         </Navbar.Collapse>
       </Container>

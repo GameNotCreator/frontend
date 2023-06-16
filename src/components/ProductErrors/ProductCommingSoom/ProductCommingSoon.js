@@ -1,13 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Particle from "../Particle";
-import Github from "./Github";
-import Techstack from "./Techstack";
-import Aboutcard from "./AboutCard";
-import laptopImg from "../../Assets/about.png";
-import Toolstack from "./Toolstack";
+import Particle from "../../Particle";
+import ProductComingSoonCard from "./ProductComingSoonCard";
+import laptopImg from "../../../Assets/Construction-Sign-Transparent.png";
 
-function About() {
+function ProductComingSoon() {
   return (
     <Container fluid className="about-section">
       <Particle />
@@ -22,9 +19,9 @@ function About() {
             }}
           >
             <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
-           <strong className="purple"> WHO WE ARE ?</strong>
+              Product is <strong className="purple">coming soon</strong>
             </h1>
-            <Aboutcard />
+            <ProductComingSoonCard />
           </Col>
           <Col
             md={5}
@@ -34,20 +31,9 @@ function About() {
             <img src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>
-        <h1 className="project-heading">
-          Professional <strong className="purple">Skillset </strong>
-        </h1>
-
-        <Techstack />
-
-        <h1 className="project-heading">
-          <strong className="purple">Our</strong> Parteners
-        </h1>
-        <Toolstack />
-
       </Container>
     </Container>
   );
 }
 
-export default About;
+export default ProductComingSoon;
