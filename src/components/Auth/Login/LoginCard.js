@@ -29,7 +29,7 @@ function LoginCard() {
     const data = { email, password, restaurant };
 
     try {
-      const response = await axios.post('http://localhost:3500/api/auth/login', data, { withCredentials: true });
+      const response = await axios.post('http://164.132.113.53:3500/api/auth/login', data, { withCredentials: true });
 
       if (response.data.error) {
         setErrorMessage(response.data.error);
@@ -38,13 +38,15 @@ function LoginCard() {
         console.log(document.cookie); // print cookies
         setErrorMessage('') 
         // Récupérer les informations de l'utilisateur
-        fetch('http://localhost:3500/api/auth/namedisplay', {
+        fetch('http://164.132.113.53:3500/api/auth/namedisplay', {
           credentials: 'include'  // pour envoyer les cookies avec la requête
         })
           .then(response => response.json())
           .then(data => {
             // mettre à jour l'état 'user' avec les informations de l'utilisateur
             setUser(data);
+            navigate('/');  
+
           })
           .catch(error => {
             console.error('Error:', error);

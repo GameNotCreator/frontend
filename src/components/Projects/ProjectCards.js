@@ -21,7 +21,7 @@ function ProjectCards(props) {
 
   return (
     <Card className="project-card-view">
-      <Card.Img variant="top" src={`http://localhost:3500/${props.imgPath}`} alt="card-img" />
+      <Card.Img variant="top" src={`http://164.132.113.53:3500/${props.imgPath}`} alt="card-img" />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>

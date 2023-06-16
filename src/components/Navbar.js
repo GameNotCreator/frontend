@@ -27,7 +27,7 @@ function NavBar() {
 
 
   useEffect(() => {
-    fetch('http://localhost:3500/api/auth/namedisplay', {
+    fetch('http://164.132.113.53:3500/api/auth/namedisplay', {
       credentials: 'include'  // pour envoyer les cookies avec la requête
     })
     .then(response => response.json())
