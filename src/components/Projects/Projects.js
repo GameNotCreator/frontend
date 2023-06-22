@@ -8,7 +8,7 @@ function Projects() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://hnh.tn/api/products') // Remplacez cette URL par l'URL de votre serveur.
+    axios.get('https://api.hnh.tn/api/products') // Remplacez cette URL par l'URL de votre serveur.
       .then(response => {
         setProducts(response.data);
       })
