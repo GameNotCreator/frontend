@@ -8,7 +8,7 @@ function LogoutButton() {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.get('https://hnh.tn/api/auth/logout', { withCredentials: true });
+      const response = await axios.get('https://api.hnh.tn/api/auth/logout', { withCredentials: true });
       if(response.status === 200){
         setUser(null);
       } else {
