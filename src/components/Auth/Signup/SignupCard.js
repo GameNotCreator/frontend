@@ -56,14 +56,14 @@ function SignupCard() {
     const data = { firstName: firstname, lastName: lastname, email, password, restaurant };
 
     try {
-      const response = await axios.post('https://hnh.tn/api/auth/signup', data);
+      const response = await axios.post('https://api.hnh.tn/api/auth/signup', data);
 
       if (response.data.error) {
         setErrorMessage(response.data.error);
       } else {
         console.log('Signup successfully');
         setErrorMessage('');
-        fetch('https://hnh.tn/api/auth/namedisplay', {
+        fetch('https://api.hnh.tn/api/auth/namedisplay', {
           credentials: 'include'
         })
           .then(response => response.json())
