@@ -27,7 +27,7 @@ function NavBar() {
 
 
   useEffect(() => {
-    fetch('https://hnh.tn/api/auth/namedisplay', {
+    fetch('https://api.hnh.tn/api/auth/namedisplay', {
       credentials: 'include'  // pour envoyer les cookies avec la requête
     })
     .then(response => response.json())
